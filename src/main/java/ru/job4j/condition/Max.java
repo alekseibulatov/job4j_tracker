@@ -11,8 +11,7 @@ public class Max {
     }
 
     public int max(int a, int b, int c, int d) {
-        int i = (a > b) ? max(a, c) : max(b, c);
-        return max(i, d);
+        return max(a, max(b, d));
     }
 
     public static void main(String[] args) {
