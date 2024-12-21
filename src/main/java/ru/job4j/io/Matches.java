@@ -12,15 +12,14 @@ public class Matches {
             while (count > 0) {
                 String player = turn ? "Первый игрок" : "Второй игрок";
                 System.out.println(String.format("%s введите число от 1 до 3:", player));
-
                 int matches = Integer.parseInt(input.nextLine());
                 turn = !turn;
-                while (matches < 1 || matches > 3) {
+                if (matches < 1 || matches > 3) {
                     System.out.println(String.format("Введенное значение  %s должно быть от 1 до 3 x", matches));
                     System.out.println("Введите повторно значение: ");
                     matches = Integer.parseInt(input.nextLine());
-                }
-                while (count < matches) {
+                } else
+                if (count < matches) {
                     System.out.println(String.format("Введенное значение %s больше остатка", matches));
                     System.out.println("Введите повторно значение: ");
                     matches = Integer.parseInt(input.nextLine());
