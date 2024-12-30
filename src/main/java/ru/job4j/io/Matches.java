@@ -14,17 +14,17 @@ public class Matches {
                 System.out.println(String.format("%s введите число от 1 до 3:", player));
                 int matches = Integer.parseInt(input.nextLine());
                 turn = !turn;
-                if (matches < 1 || matches > 3) {
+                if (matches >= 1 && matches <= 3) {
+                    if (count >= matches) {
+                        count -= matches;
+                    } else {
+                        System.out.println(String.format("Введенное значение  %s должно быть не более остатка %s", matches, count));
+                        turn = !turn;
+                    }
+                } else {
                     System.out.println(String.format("Введенное значение  %s должно быть от 1 до 3 x", matches));
-                    System.out.println("Введите повторно значение: ");
-                    matches = Integer.parseInt(input.nextLine());
-                } else
-                if (count < matches) {
-                    System.out.println(String.format("Введенное значение %s больше остатка", matches));
-                    System.out.println("Введите повторно значение: ");
-                    matches = Integer.parseInt(input.nextLine());
+                    turn = !turn;
                 }
-                count -= matches;
             }
             if (!turn) {
                 System.out.println("Выиграл первый игрок");
