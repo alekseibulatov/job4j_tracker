@@ -36,8 +36,7 @@ public class StartUITest {
         Item item = new Item("deleted item");
         tracker.add(item);
         String[] answers = {
-                String.valueOf(item.getId()),
-                "deleted item"
+                String.valueOf(item.getId())
         };
         StartUI.deleteItem(new MockInput(answers), tracker);
         Item deletedItem = tracker.findById(item.getId());
